@@ -1,5 +1,5 @@
 import React from "react";
-import "../app.css";
+import "../App.css";
 
 export default function Rating({ rating, numReviews }) {
   return (
@@ -59,7 +59,7 @@ export default function Rating({ rating, numReviews }) {
           }
         ></i>
       </span>
-      <span>{numReviews + " reviews"}</span>
+      <span>({numReviews})</span>
     </div>
   );
 }

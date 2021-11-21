@@ -191,30 +191,43 @@ img.small {
 }
 
 img.medium {
-  max-width: 30rem;
-  width: 100%;
+  object-fit: contain;
+  height: 200px;
+  width:200px;
 }
 
 img.large {
-  width: 100%;
+  width: 70%;
 }
 
 
 /* Card */
 
 .card {
-  border: 0.1rem #c0c0c0 solid;
-  background-color: #f8f8f8;
-  border-radius: 0.5rem;
-  margin: 1rem;
+  border: 0.1px solid lightgrey;
+  background: white;
+  width: 200px;
+  padding: 10px;
+}
+
+.card:hover{
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
 .card-body {
-  padding: 1rem;
+  padding: 10px;
 }
 
 .price {
   font-size: 2rem;
+}
+
+.product{
+  padding: 20px;
+  display: flex;
+  gap:20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 

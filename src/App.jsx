@@ -3,7 +3,7 @@ import { FaCartPlus } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import { signOut } from "./actions/userActions";
-import "./app.css";
+import "./App.css";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
 import OrderDetailScreen from "./screens/OrderDetailScreen";
