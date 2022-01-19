@@ -22,7 +22,7 @@ export default function SigninScreen(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signin(email, password)); // sign in is a function so we need to call it with the parameter it accepts
+    dispatch(signin(email, password)); // signin is a function, so we need to call it with the parameter it accepts
   };
 
   useEffect(() => {

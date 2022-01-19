@@ -117,7 +117,6 @@ button.small {
   font-size: 1.2rem;
 }
 
-
 /* Header */
 
 header a {
@@ -131,13 +130,22 @@ a.brand {
   font-weight: bold;
 }
 
+.cart{
+  position: relative;
+}
+
 .badge {
   background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
   color: black;
   border-radius: 50%;
   padding: 0.1rem 0.5rem;
   font-size: 1.3rem;
-  margin-left: 0.2rem;
+  right: -10px;
+  top: -17px;
 }
 
 .row {
@@ -157,6 +165,64 @@ a.brand {
 
 .row.start {
   justify-content: flex-start;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  height: 50px;
+  border-bottom: 0.1px solid lightgrey;
+  position: sticky;
+  top: 0;
+}
+
+.header-left {
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.header-search {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: white;
+  height: 20px;
+  width: 40%;
+}
+
+.header-search > input {
+  outline: none;
+  background: none;
+  border: none;
+  width: 100%;
+  font-size: 16px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.header-right > a {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 7px;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
+
+.header-right > a:hover {
+  border-radius: 10px;
+  color: orangered;
+  background-color: whitesmoke;
+  padding: 7px;
 }
 
 .col-1 {
@@ -181,6 +247,7 @@ a.brand {
 
 
 /* Image */
+
 img {
   border-radius: 0.5rem;
 }
@@ -193,13 +260,12 @@ img.small {
 img.medium {
   object-fit: contain;
   height: 200px;
-  width:200px;
+  width: 200px;
 }
 
 img.large {
   width: 70%;
 }
-
 
 /* Card */
 
@@ -210,8 +276,8 @@ img.large {
   padding: 10px;
 }
 
-.card:hover{
-  box-shadow: 0 0 11px rgba(33,33,33,.2);
+.card:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
 
 .card-body {
@@ -222,14 +288,13 @@ img.large {
   font-size: 2rem;
 }
 
-.product{
+.product {
   padding: 20px;
   display: flex;
-  gap:20px;
+  gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 
 /* Rating */
 
@@ -241,7 +306,6 @@ img.large {
 .rating span:last-child {
   color: grey;
 }
-
 
 /* Alert */
 
@@ -278,7 +342,6 @@ img.large {
   background-color: lightgray;
 }
 
-
 /* Form */
 
 .form {
@@ -300,7 +363,7 @@ img.large {
   margin: 1rem 0;
 }
 
-.form input{
+.form input {
   margin-bottom: 3rem;
 }
 
@@ -308,7 +371,7 @@ img.large {
 /* Dropdown */
 
 .dropdown {
-  display: inline-block;
+  /* display: inline-block; */
   position: relative;
 }
 
@@ -317,16 +380,24 @@ img.large {
   display: none;
   right: 0;
   min-width: 12rem;
-  padding: 1rem;
   z-index: 1;
-  background-color: orangered;
-  margin: 0;
-  margin-top: 0.4rem;
-  border-radius: 0.5rem;
+  background-color: rgb(12, 11, 11);
+  border-radius: 1rem;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.sign-out{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.sign-out:hover{
+  color: orangered;
 }
 
 
@@ -341,5 +412,5 @@ img.large {
 }
 .checkout-steps > div.active {
   border-top-color: #f08000;
-  color: #f08000
+  color: #f08000;
 }

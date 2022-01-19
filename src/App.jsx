@@ -26,41 +26,52 @@ export default function App() {
     dispatch(signOut());
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <BrowserRouter>
-      <div className="grid-container">
-        <header className="row">
-          <div>
-            <Link className="brand" to="/">
-              Mero Pasal
-            </Link>
-          </div>
-          <div>
-            {userInfo ? (
-              <div className="dropdown">
-                <Link to="#">
-                  {userInfo.name} <i className="fa fa-caret-down"></i>
-                </Link>
-                <ul className="dropdown-content">
-                  <Link to="#signout" onClick={handleSignout}>
+      <header className="header-row">
+        <div className="header-left">
+          <Link to="/">Ecommerce App</Link>
+        </div>
+        <div className="header-search">
+          <i className="fa fa-search"></i>
+          <input onSubmit={handleSubmit} type="text" name="" id="" />
+        </div>
+
+        <div className="header-right">
+          {userInfo ? (
+            <div className="dropdown">
+              <Link to="#">
+                {userInfo.name} <i className="fa fa-caret-down"></i>
+              </Link>
+              <ul className="dropdown-content">
+                <li>
+                  <Link to="#signout" className="sign-out" onClick={handleSignout}>
                     Sign Out
                   </Link>
-                </ul>
-              </div>
-            ) : (
-              <Link to="/signin">Sign In</Link>
-            )}
-            <Link to="/cart">
-              <span>
-                <FaCartPlus size="25" />
-              </span>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/signin">Sign In</Link>
+          )}
+          
+          <Link to="/cart">
+            <span className="cart">
+              <FaCartPlus size="25" />
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
               )}
-            </Link>
-          </div>
-        </header>
+            </span>
+          </Link>
 
+        </div>
+      </header>
+
+      <div className="grid-container">
         <main>
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen}></Route>

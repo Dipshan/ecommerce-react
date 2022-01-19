@@ -13,7 +13,7 @@ export const generateToken = (user) => {
   );
 };
 
-// Middleware => to authenticate request 
+// Middleware => to authenticate request
 // to verify token
 // to check if user is valid or not
 // to check if user has sent valid token or not
