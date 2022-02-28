@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { detailsProduct } from "../actions/productActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import Rating from "../components/Rating";
+import { SnackbarContext } from "../contexts/Snackbar";
 
 export default function ProductScreen(props) {
   const userSignIn = useSelector((state) => state.userSignIn);
   const { userInfo } = userSignIn;
+  const { openSnackbar } = useContext(SnackbarContext);
 
   const productId = props.match.params.id;
   const [qty, setQty] = useState(1);
@@ -22,6 +24,7 @@ export default function ProductScreen(props) {
 
   const handleAddToCart = () => {
     props.history.push(`/signin?redirect=/cart/${productId}?qty=${qty}`);
+    openSnackbar("Product Added");
   };
 
   return (

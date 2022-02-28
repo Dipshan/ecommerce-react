@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart, removeFromCart } from "../actions/cartActions";
 import MessageBox from "../components/MessageBox";
 import { FaTrash } from "react-icons/fa";
+import { SnackbarContext } from "../contexts/Snackbar";
 
 export default function CartScreen(props) {
+  const {openSnackbar}=useContext(SnackbarContext)
   const userSignIn = useSelector((state) => state.userSignIn);
   const { userInfo } = userSignIn;
   if (!userInfo) {
@@ -26,6 +28,7 @@ export default function CartScreen(props) {
 
   const handleDeleteCart = (id) => {
     dispatch(removeFromCart(id));
+    openSnackbar("Product removed from cart", "warning")
   };
 
   const checkoutHandler = () => {

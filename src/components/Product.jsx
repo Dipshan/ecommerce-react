@@ -17,7 +17,7 @@ export default function Product({
       </Link>
       <div className="card-body">
         <Link to={`/product/${id}`}>
-          <h2>{name}</h2>
+          <h2 className="product-name">{name}</h2>
         </Link>
         <Rating rating={rating} numReviews={numReviews} />
         <div className="price">Rs. {price}</div>

@@ -1,9 +1,11 @@
-import React from "react";
+import { Snackbar } from "@mui/material";
+import React, { useContext } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import { signOut } from "./actions/userActions";
 import "./App.css";
+import { SnackbarContext } from "./contexts/Snackbar";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
 import OrderDetailScreen from "./screens/OrderDetailScreen";
@@ -13,8 +15,14 @@ import ProductScreen from "./screens/ProductScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SigninScreen from "./screens/SigninScreen";
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export default function App() {
+  const { snackbar, closeSnackbar } = useContext(SnackbarContext);
   const cart = useSelector((state) => state.cart);
   const userSignIn = useSelector((state) => state.userSignIn);
   const { cartItems } = cart;
@@ -32,10 +40,20 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <header className="header-row">
-        <div className="header-left">
-          <Link to="/">Ecommerce App</Link>
-        </div>
+      <Snackbar
+        open={snackbar.open} // true | false
+        autoHideDuration={3000}
+        onClose={closeSnackbar}
+      >
+        <Alert onClose={closeSnackbar} severity={snackbar.type} sx={{ width: '100%' }}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
+
+      <header className="header">
+        <Link to="/">
+          <img className="site-logo" src="/images/logo.png" alt="" />
+        </Link>
         <div className="header-search">
           <i className="fa fa-search"></i>
           <input onSubmit={handleSubmit} type="text" name="" id="" />
@@ -49,30 +67,33 @@ export default function App() {
               </Link>
               <ul className="dropdown-content">
                 <li>
-                  <Link to="#signout" className="sign-out" onClick={handleSignout}>
+                  <Link
+                    to="#signout"
+                    className="sign-out"
+                    onClick={handleSignout}
+                  >
                     Sign Out
                   </Link>
                 </li>
               </ul>
             </div>
           ) : (
-            <Link to="/signin">Sign In</Link>
+            <Link to="/signin">Sign-In</Link>
           )}
-          
+
           <Link to="/cart">
             <span className="cart">
-              <FaCartPlus size="25" />
+              <FaCartPlus className="cart-icon" size="25" />
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
               )}
             </span>
           </Link>
-
         </div>
       </header>
 
       <div className="grid-container">
-        <main>
+        <main className="app">
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen}></Route>
           <Route path="/signin" component={SigninScreen}></Route>
@@ -84,7 +105,11 @@ export default function App() {
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
 
-        <footer className="row center">By: Deepshan Adhikari</footer>
+        <footer className="footer">
+          <Link to="/">
+            <img className="footer-logo" src="/images/logo.png" alt="" />
+          </Link>
+        </footer>
       </div>
     </BrowserRouter>
   );

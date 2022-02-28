@@ -25,18 +25,16 @@ body {
     "main"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 7rem 1fr 7rem;
+  grid-template-rows: 1rem 1fr 7rem;
   height: 100%;
 }
 
-header {
+.header {
   grid-area: header;
-  background-color: orangered;
 }
 
 main {
   grid-area: main;
-  padding: 1rem;
 }
 
 footer {
@@ -117,35 +115,42 @@ button.small {
   font-size: 1.2rem;
 }
 
+.snackbar-body{
+  align-items: center;
+  font-size: 12px;
+}
+
 /* Header */
 
-header a {
-  color: #ffffff;
-  padding: 2rem;
+.site-header {
+  position: sticky;
+  top: 0;
 }
 
-a.brand {
-  color: white;
-  font-size: 3.5rem;
-  font-weight: bold;
+.site-logo {
+  cursor: pointer;
+  width: 10rem;
 }
 
-.cart{
+.cart {
+  display: flex;
   position: relative;
+  margin-left: 15px;
+  cursor: pointer;
 }
 
 .badge {
-  background-color: white;
+  background-color: orangered;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  color: black;
+  color: white;
   border-radius: 50%;
   padding: 0.1rem 0.5rem;
   font-size: 1.3rem;
   right: -10px;
-  top: -17px;
+  top: -10px;
 }
 
 .row {
@@ -167,20 +172,21 @@ a.brand {
   justify-content: flex-start;
 }
 
-.header-row {
+.header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding: 10px;
-  height: 50px;
   border-bottom: 0.1px solid lightgrey;
+  background: white;
   position: sticky;
   top: 0;
+  height: 50px;
 }
 
-.header-left {
-  font-size: 32px;
+.site-logo {
   cursor: pointer;
+  width: 90px;
 }
 
 .header-search {
@@ -194,10 +200,17 @@ a.brand {
   width: 40%;
 }
 
+.header-search:hover {
+  color: grey;
+  border-color: orangered;
+  background: white;
+}
+
 .header-search > input {
   outline: none;
   background: none;
   border: none;
+  color: rgb(70, 70, 70);
   width: 100%;
   font-size: 16px;
 }
@@ -205,14 +218,13 @@ a.brand {
 .header-right {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 15px;
 }
 
 .header-right > a {
   font-size: 18px;
-  font-weight: 500;
-  padding: 7px;
+  font-weight: 600;
+  padding: 10px;
   cursor: pointer;
   color: black;
   text-decoration: none;
@@ -221,8 +233,7 @@ a.brand {
 .header-right > a:hover {
   border-radius: 10px;
   color: orangered;
-  background-color: whitesmoke;
-  padding: 7px;
+  padding: 10px;
 }
 
 .col-1 {
@@ -244,7 +255,6 @@ a.brand {
 .p-1 {
   padding: 1rem;
 }
-
 
 /* Image */
 
@@ -284,12 +294,16 @@ img.large {
   padding: 10px;
 }
 
+.product-name {
+  font-size: 16px;
+}
+
 .price {
   font-size: 2rem;
 }
 
 .product {
-  padding: 20px;
+  padding: 30px;
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
@@ -342,31 +356,104 @@ img.large {
   background-color: lightgray;
 }
 
-/* Form */
+/* Sign-in */
 
-.form {
-  max-width: 60rem;
-  margin: 0 auto;
-}
-
-.form > div {
+.signin {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  align-items: center;
+  justify-content: center;
+  background: white;
 }
 
-.form .sign-in {
+.signin-card {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 30px;
+}
+
+.signin-card > h1 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: orangered;
+}
+
+.signin-detail {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  gap: 5px;
+}
+
+.signin-detail > input {
+  height: 30px;
+  width: 400px;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  outline: none;
+}
+
+.signin-detail > input:hover {
+  border: 1px solid orangered;
+}
+
+.signin-button {
+  margin-top: 30px;
+}
+
+.signin-button > button {
+  padding: 10px;
+  width: 400px;
+  cursor: pointer;
+  font-size: 16px;
+  background: none;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.signin-button > button:hover {
+  color: white;
+  background-color: orangered;
+}
+
+.new-account {
+  margin-top: 30px;
+}
+
+.t-and-c {
+  font-size: 12px;
   text-align: center;
 }
 
-.form label {
-  margin: 1rem 0;
+.t-and-c > a:hover {
+  font-size: 12px;
+  cursor: pointer;
+  color: orangered;
 }
 
-.form input {
-  margin-bottom: 3rem;
+.acc-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
 }
 
+.register-redirect {
+  background: none;
+  text-decoration: none;
+  outline: none;
+  color: black;
+}
+
+.register-redirect:hover {
+  color: orangered;
+}
 
 /* Dropdown */
 
@@ -381,7 +468,7 @@ img.large {
   right: 0;
   min-width: 12rem;
   z-index: 1;
-  background-color: rgb(12, 11, 11);
+  background-color: rgb(20, 20, 20);
   border-radius: 1rem;
 }
 
@@ -389,17 +476,17 @@ img.large {
   display: block;
 }
 
-.sign-out{
+.sign-out {
   display: flex;
+  color: white;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.sign-out:hover{
+.sign-out:hover {
   color: orangered;
 }
-
 
 /* Checkout Steps */
 
@@ -413,4 +500,20 @@ img.large {
 .checkout-steps > div.active {
   border-top-color: #f08000;
   color: #f08000;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: orangered;
+  font-size: 20px;
+  font-weight: 500;
+  height: 70px;
+  background-color: black;
+  border-top: 0.1px solid lightgrey;
+}
+
+.footer-logo {
+  width: 150px;
 }

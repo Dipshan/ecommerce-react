@@ -22,7 +22,7 @@ export default function HomeScreen() {
         <MessageBox variant="danger">{e}</MessageBox>
       ) : (
         <>
-          {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
+          {products.length === 0 && <MessageBox>No Products Found</MessageBox>}
           <div className="product">
             {products.map((product) => (
               <Product

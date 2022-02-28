@@ -6,7 +6,7 @@ import {
   USER_SIGNIN_FAIL,
   USER_SIGNIN_REQUEST,
   USER_SIGNIN_SUCCESS,
-  USER_SIGOUT,
+  USER_SIGNOUT,
 } from "../constants/userConstants";
 
 export const signin = (email, password) => async (dispatch) => {
@@ -64,10 +64,9 @@ export const register = (name, email, password) => async (dispatch) => {
 };
 
 export const signOut = () => (dispatch) => {
-  localStorage.removeItem("userInfo");
-  localStorage.removeItem("cartItems");
-  localStorage.removeItem("shippingAddress");
-  dispatch({
-    type: USER_SIGOUT,
-  });
+  localStorage.removeItem('userInfo');
+  localStorage.removeItem('cartItems');
+  localStorage.removeItem('shippingAddress');
+  dispatch({ type: USER_SIGNOUT });
+  document.location.href = '/signin';
 };

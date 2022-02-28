@@ -16,7 +16,7 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    // useFindAndModify: false,
+    useFindAndModify: false,
     useCreateIndex: true,
   },
   () => console.log("Connected to DB")
@@ -37,5 +37,5 @@ app.get("/", (req, res) => {
 const PORT = process.env.port || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server at http://localhost:${PORT} is listening`);
+  console.log(`Server is listening at http://localhost:${PORT}`);
 });

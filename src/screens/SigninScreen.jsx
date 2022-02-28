@@ -32,45 +32,46 @@ export default function SigninScreen(props) {
   }, [props.history, redirect, userInfo]);
 
   return (
-    <div>
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="sign-in">
-          <h1>Sign In</h1>
-        </div>
-        {loading && <LoadingBox></LoadingBox>}
+    <div className="signin">
+      <form className="signin-card" onSubmit={handleSubmit}>
+        <h1>Sign-In</h1>
         {error && <MessageBox variant="danger">{error}</MessageBox>}
-        <div>
-          <label htmlFor="email">Email</label>
+        <div className="signin-detail">
+          <label htmlFor="email">Email or Mobile Phone Number</label>
           <input
             type="email"
             id="email"
-            placeholder="Enter Your Email"
             required
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
+        <div className="signin-detail">
           <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
-            placeholder="Enter Your Password"
             required
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div>
-          <label />
-          <button className="primary" type="submit">
-            Sign In
-          </button>
+        <div className="signin-button">
+          <button type="submit">Sign-in 
+          {loading && <LoadingBox></LoadingBox>}</button>
         </div>
-        <div>
-          <label />
-          <div>
-            New User?{" "}
-            <Link to={`/register?redirect=${redirect}`}>
-              Create your account
+
+        <div className="new-account">
+          <div className="t-and-c">
+            By continuing, you agree to our <a>Conditions of Use</a> and{" "}
+            <a>Privacy Policy</a>
+          </div>
+
+          <div className="acc-login">
+            <h5>New User?</h5>
+            <Link
+              className="register-redirect"
+              to={`/register?redirect=${redirect}`}
+            >
+              Create New Account
             </Link>
           </div>
         </div>
