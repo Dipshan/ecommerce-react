@@ -32,9 +32,10 @@ function SnackbarProvider({ children }) {
         openSnackbar,
         closeSnackbar,
       }}
-      className="snackbar-body"
     >
-      {children}
+      <div className="snackbar-body">
+        {children}
+      </div>
     </SnackbarContext.Provider>
   );
 }

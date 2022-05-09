@@ -24,7 +24,7 @@ export default function ProductScreen(props) {
 
   const handleAddToCart = () => {
     props.history.push(`/signin?redirect=/cart/${productId}?qty=${qty}`);
-    openSnackbar("Product Added");
+    {userInfo && openSnackbar("Product Added");}
   };
 
   return (
